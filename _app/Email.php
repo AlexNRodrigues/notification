@@ -9,23 +9,23 @@ class Email {
 
     private $mail = \stdClass::class;
 
-    public function __construct()
+    public function __construct($smtpDebug, $host, $user, $pass, $smtpSecure, $port, $setFromEmail, $setFromName)
     {
         $this->mail = new PHPMailer(true);
 
         //Configs de envio
-        $this->mail->SMTPDebug = 2;                      // Enable verbose debug output
+        $this->mail->SMTPDebug = $smtpDebug;                      // Enable verbose debug output
         $this->mail->isSMTP();                                            // Send using SMTP
-        $this->mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+        $this->mail->Host       = $host;                    // Set the SMTP server to send through
         $this->mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        $this->mail->Username   = 'eteste369@gmail.com';                     // SMTP username
-        $this->mail->Password   = 'PgUp1teste369';                               // SMTP password
-        $this->mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-        $this->mail->Port       = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+        $this->mail->Username   = $user;                     // SMTP username
+        $this->mail->Password   = $pass;                               // SMTP password
+        $this->mail->SMTPSecure =  $smtpSecure;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+        $this->mail->Port       =  $port;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
         $this->mail->CharSet    = 'utf-8';
         $this->mail->setLanguage('br');
         $this->mail->isHTML(true);
-        $this->mail->setFrom('eteste369@gmail.com', 'Alex equipe');
+        $this->mail->setFrom( $setFromEmail, $setFromName);
 
 
     }
