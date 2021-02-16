@@ -1,0 +1,26 @@
+{
+    "name": "alexnrodrigues/notification",
+    "description": "This is a library that uses composer as the basic for generating email notification",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AlexNRodrigues",
+            "email": "alexnasscimento99@gmail.com",
+            "homepage": "https://github.com/AlexNRodrigues",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "phpmailer/phpmailer": "6.2"
+    },
+    "config": {
+        "vendor-dir": "lib_ext"
+    },
+    "autoload": {
+        "psr-4": {
+            "Notification\\": "_app"
+        }
+    }
+}
